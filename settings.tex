@@ -1,0 +1,197 @@
+% ################################### PAQUETES ###################################
+%% Codificación y Fuente
+\usepackage[utf8]{inputenc} % Codificación de entrada en UTF-8
+\usepackage[T1]{fontenc} % Codificación de fuente
+\usepackage{times} % Cambia la fuente a Times New Roman
+\pdfminorversion=7 % Por un warning por el logo en la protada
+
+%% Internacionalización
+\usepackage[spanish,es-lcroman]{babel} % spanish,es-lcroman son para cambiar la numeración romana a mínuscual. (Por defecto, solo spanish esta en mayuscula)
+
+%% Geometría y Márgenes
+%\PassOptionsToPackage{showframe}{geometry} % Habilitar la opción de mostrar margenes en el paquete "geometry"
+\usepackage[left=2.54cm, right=2.54cm, top=2.54cm, bottom=2.54cm]{geometry} % Define los márgenes de la página
+
+%% Matemáticas
+\usepackage{amsmath} % Facilita la escritura de estructuras matemáticas
+\usepackage{amssymb} % Proporciona una extensa colección de símbolos matemáticos, incluye \blacklozenge
+
+%% Gráficos y Figuras
+\usepackage{graphicx} % Permite incluir gráficos
+\graphicspath{ {./img/} } % Ruta por defector para las imágenes
+%\usepackage{subfigure} % Permite manejar subfiguras dentro de una figura
+%\usepackage{wrapfig} % Permite que el texto rodee a las figuras
+
+%% Tablas
+%\usepackage{tabularx} % Tablas con anchuras ajustables
+\usepackage{colortbl} % Agrega color a las tablas, incluye \cellcolor
+\usepackage{longtable} % Para tablas que se extienden por varias páginas, incluye {longtable}
+\usepackage{multirow} % Permite celdas que abarcan varias filas en tablas 
+\usepackage{bigstrut} % Permite crear espacios más grandes en las tablas (incluye \bigstrut)
+\usepackage{tabularray} % Paquete para crear tablas, incluye {longtblr}
+\usepackage{array} % Extiende las opciones de las tablas
+\usepackage{ltablex} % longtable con opciones de tabularx
+
+%% Encabezados y Pies de Página
+\usepackage{fancyhdr} % Permite personalizar encabezados y pies de página
+
+%% Otros
+\usepackage{xcolor} % Permite el uso de colores (cyan, yellow)
+\usepackage{hyperref} % Gestiona enlaces hipertexto, incluye (\url)
+\usepackage{rotating} % Permite la rotación de imagenes y tablas, incluye el entorno {sidewaysfigure}
+\usepackage{scalerel} % Escala objetos a tamaños relativos, incluye \scaleobj
+\usepackage{float} % Permitede finir objetos flotantes usando [H]
+\usepackage[export]{adjustbox} % Permite ajustar objetos en entornos flotantes.
+\usepackage{titletoc}% Personalización detallada de los contenidos, incluye \titlecontents
+\usepackage[font=footnotesize]{caption} % Cambia el tamaño de las captions a 10pt (ya que el documento esta definido en 12pt)
+\usepackage{titlesec} % Permite cambiar el tamaño, color, fuente de los títulos de chapter, section y subsection
+%\usepackage{color} % Permite el uso de colores
+%\usepackage{verbatim} % Mejora el entorno verbatim
+%\usepackage{epstopdf} % Convierte imágenes EPS a PDF
+%\usepackage{ifpdf} % Proporciona condicionales para la compilación PDF
+%\usepackage{url} % Facilita la escritura de direcciones web
+%\usepackage{vmargin} % Permite ajustar los márgenes de la página
+%\usepackage{scrextend} % Añade funcionalidades de KOMA-Script
+%\usepackage{anyfontsize} % Permite cualquier tamaño de fuente
+%\usepackage{enumerate} % Personaliza las listas enumeradas
+%\usepackage{indentfirst} % Indenta el primer párrafo de cada sección
+%\usepackage{pdflscape} % Permite páginas individuales en formato paisaje
+%\usepackage{flafter} % Asegura que los flotantes no aparezcan antes de su definición en el texto
+%\usepackage[framemethod=tikz]{mdframed} % Crea cajas con marcos para destacar texto
+%\usepackage{setspace} % Permite cambiar el interlineado
+%\usepackage{comment} % Permite excluir bloques de texto del documento final
+%\usepackage[overload]{textcase} % Cambia el modo de las mayúsculas
+
+%% Algoritmos y Pseudocódigo
+%\usepackage{algorithmicx,algpseudocode} % Facilita la escritura de algoritmos y pseudocódigo
+%\usepackage{algorithm} % Entorno flotante para algoritmos
+
+%Situacionales
+\usepackage{lipsum} % Genera texto de relleno
+
+% ############################ DEFINICIÓN DE NUEVOS COMANDOS ############################
+
+% ------------------- CONFIGURACIÓN DE CAPTION DE FIGURAS Y TABLAS -------------------
+\captionsetup[table]{width=.8\linewidth}
+
+% -------------------------- CONFIGURACIÓN DEL INTERLINEADO ---------------------------
+\renewcommand{\baselinestretch}{1.5} % Interlineado
+
+% --------------------------- CONFIGURAR FOOTERS Y HEADERS ---------------------------
+% Estilo para el frontmatter
+\fancypagestyle{frontmatterstyle}{
+	\fancyhf{} % Limpia el header and footer
+	\fancyfoot[C]{\thepage} % En el centro del footer coloca la numeración
+	\renewcommand{\headrulewidth}{0pt} % La línea se setea a 0
+}
+
+% Estilo para el mainmatter
+\fancypagestyle{mainmatterstyle}{
+	\fancyhf{} % Limpia el header and footer
+	\fancyhead[R]{\thepage} % En la esquina superior derecha del header coloca la numeración
+	\renewcommand{\headrulewidth}{0pt} % La línea se setea a 0
+}
+
+% ------------------------ CONFIGURACIÓN DE LOS HIPERVÍNCULOS ------------------------
+\urlstyle{same} %Hacer que la fuente del URL de la bibliografía sea la misma
+\hypersetup{ % Configura las opciones para los hiperenlaces en el documento
+	colorlinks=true, % Activa el color de los enlaces en lugar de cajas de color
+	citecolor=black, % Establece el color de los enlaces de las citas a negro
+	filecolor=black, % Establece el color de los enlaces de archivos a negro
+	linkcolor=black, % Establece el color de los enlaces internos (como secciones) a negro
+	urlcolor=black % Establece el color de los enlaces de URL a negro
+}
+
+% ----------------- CONFIGURACIÓN DE FUENTES Y TAMAÑOS DE LOS TÍTULOS -----------------
+
+% Configuración para el título del capítulo
+\titleformat{\chapter}[display] % Tipo de visualización 'display' para capítulos
+{\normalfont\normalsize\bfseries\centering} % Estilo del título del capítulo
+{\MakeUppercase{\chaptertitlename} \thechapter} % Prefijo del título, ej. "Capítulo 1"
+{12pt} % Espacio entre el prefijo y el título del capítulo
+{\normalsize} % Tamaño del título del capítulo
+
+% Configuración para el título de la sección
+\titleformat{\section} % Afecta solo a las secciones
+{\normalfont\normalsize\bfseries} % Estilo del título de la sección
+{\thesection} % Prefijo del título, ej. "1.1"
+{12pt} % Espacio entre el prefijo y el título de la sección
+{} % Código adicional para antes del título, si es necesario
+
+% Configuración para el título de la subsección
+\titleformat{\subsection} % Afecta solo a las subsecciones
+{\normalfont\normalsize\bfseries} % Estilo del título de la subsección
+{\thesubsection} % Prefijo del título, ej. "1.1.1"
+{12pt} % Espacio entre el prefijo y el título de la subsección
+{} % Código adicional para antes del título, si es necesario
+
+% ------------------------- CUADRADOS DE COLORES EN EL TEXTO --------------------------
+% normal box
+\newcommand{\sqboxs}{1.2ex}% the square size
+\newcommand{\sqboxf}{0.6pt}% the border in \sqboxEmpty
+\newcommand{\sqbox}[1]{\textcolor{#1}{\rule{\sqboxs}{\sqboxs}}}
+
+% empty box
+\newcommand{\sqboxEmpty}[1]{%
+	\begingroup
+	\setlength{\fboxrule}{\sqboxf}%
+	\setlength{\fboxsep}{-\fboxrule}%
+	\textcolor{#1}{\fbox{\rule{0pt}{\sqboxs}\rule{\sqboxs}{0pt}}}%
+	\endgroup
+}
+
+% ----------------------------------- DEFINIR COLORES -----------------------------------
+\definecolor{GoldenTainoi}{rgb}{1,0.815,0.4}
+\definecolor{GreenYellow}{rgb}{0.486,1,0.239}
+
+% ------------------------ AJUSTES PARA LAS TABLAS DE {longtblr} ------------------------
+% Cambia el valor de contfoot-text
+\DefTblrTemplate{conthead-text}{mymod}{(Continuación)}
+\SetTblrTemplate{conthead-text}{mymod}
+\DefTblrTemplate{contfoot-text}{mymod}{Continúa en la siguiente página}
+\SetTblrTemplate{contfoot-text}{mymod}
+
+% ------------------------------ NUEVOS TIPOS DE COLUMNA ------------------------------
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % Define un nuevo tipo de columna "C" que centra el contenido horizontalemente y tiene un argumento para modificar el ancho
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}} % Define un nuevo tipo de columna "M" que centra el contenido verticalmente y tiene un argumento para modificar el ancho
+
+%\newcommand{\tabularxmulticolumncentered}[3]{%
+%	\multicolumn{#1}{|>{\hsize=\dimexpr #1\hsize+2\arrayrulewidth+(#1-1)\tabcolsep\relax\centering\arraybackslash}X|}{#3}%
+%}
+
+%\newcommand{\custommulticol}[3]{%
+%	\multicolumn{#1}{|>{\hsize=\dimexpr#1\hsize+#1\tabcolsep+\arrayrulewidth\relax}#2|}{#3}
+%}
+%	\multicolumn{#1}{|>{\hsize=\dimexpr1\hsize+1\tabcolsep+2\tabcolsep+2.2cm\relax}X|}{#1}
+
+
+% ----------- COMANDO PARA INCLUIR IMAGEN CON MARGEN Y TAMAÑO PERSONALIZADO -----------
+\newcommand{\IMM}[3]{
+	\adjustbox{margin=#3}{\includegraphics[width=#1\textwidth]{#2}}
+}
+% Comando \IMM: Inserta una imagen con margen y tamaño personalizado.
+% Parámetros:
+%   #1: Ancho de la imagen como una fracción del ancho de texto (\textwidth).
+%   #2: Ruta del archivo de la imagen.
+%   #3: Margen alrededor de la imagen.
+
+% ------------------------------ ESCALAMIENTO DE OBJETOS ------------------------------
+\newcommand{\B}[2]{\scaleobj{#2}{#1}} % Comando para escalar objetos
+
+% ------------------------------ DEFINIR CONSTANTES ------------------------------
+\newcommand\anchoFPT{100pt} %Ancho de la columna de Funciones Parciales (Para dominios de Tres columnas)
+\newcommand\anchoFP{70pt}
+\newcommand\anchoLE{0.9\textwidth} % Ancho de Listas de exigencias
+\newcommand\anchoLEdes{0.2\textwidth}
+\newcommand\OpR{$\color{red}\B{\blacklozenge}{1.35}$}
+\newcommand\OpA{$\color{blue}\B{\blacklozenge}{1.35}$}
+\newcommand\OpV{$\color[HTML]{4CD514}{\B{\blacklozenge}{1.35}}$}
+\newcommand\OpN{$\color{orange}\B{\blacklozenge}{1.35}$}
+
+% --------------- PARA COLOCARLA LA PALABRA CAPÍTULO A CADA \chapter ---------------
+%\titlecontents{chapter}% <section-type>
+%[0pt]% <left>
+%{\bfseries}% <above-code>
+%{\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
+%{}% <numberless-entry-format>
+%{\hfill\contentspage}% <filler-page-format>

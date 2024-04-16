@@ -1,0 +1,73 @@
+\documentclass[spanish,12pt,a4paper,oneside]{book} % oneside permite que no haya una página en blanco despues de la portada
+\input{settings} % Archivo de configuración de todo el documento
+
+% ######################### INFORMACIÓN DEL DOCUMENTO #########################
+\newcommand\documenttitle {DISEÑO DE UN SISTEMA INTEGRADO PARA EL CONTROL DE CALIDAD DE PRENDAS DE VESTIR}
+\newcommand\documentauthor {Alibert Luna Palomino}
+\newcommand\documentauthorabbreviation {A. Luna}
+\newcommand\myadvisor{José Mauricio Díaz Jurado}
+\newcommand\mycoadvisor{-}
+\newcommand\universityname {PONTIFICIA UNIVERSIDAD CATÓLICA DEL PERÚ}
+\newcommand\universityfaculty {Facultad De Ciencias e Ingeniería}
+\newcommand\universityimage {logo_PUCP_antiguo.pdf}
+\newcommand\universitylocation{Lima}
+\newcommand\documentdate {\today}
+\newcommand\documentsubtitle {1MTR02 Trabajo de Fin de Carrera 1}
+
+% ######################### CONTENIDO DEL DOCUMENTO #########################
+\begin{document}
+	
+	% RENOMBRANDO TÍTULOS DE LOS ÍNDICES
+	\renewcommand{\tablename}{Tabla} % Cambia la palabra "Cuadro" (spanish - babel) por "Tabla"
+	\renewcommand{\listtablename}{ÍNDICE DE TABLAS}
+	\renewcommand{\contentsname}{ÍNDICE DE CONTENIDO}
+	\renewcommand{\listfigurename}{ÍNDICE DE FIGURAS}
+	\renewcommand{\bibname}{BIBLIOGRAFÍA}
+	
+	%%%%% PORTADA
+	\include{chapters/portada}
+	
+	\frontmatter % Inicia la numeración romana
+	\pagestyle{frontmatterstyle} % Numeración en el centro inferior
+	\pagenumbering{roman}
+	
+%	%%%%% RESUMEN
+%	\input{chapters/abstract}
+%	\newpage
+%	
+%	%%%%% AGRADECIMIENTOS
+%	\input{chapters/acknowledgments}
+%	\newpage
+	
+	%%%%% ÍNDICE
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\contentsname}
+	\tableofcontents
+	\newpage
+	
+	%%%%% LISTA DE TABLAS
+	%\renewcommand\listtablename{\centering Índice de tablas}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\listtablename}
+	\listoftables
+	\newpage
+	
+	%%%%% LISTA DE FIGURAS
+	%\renewcommand\listfigurename{\centering Índice de figuras}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\listoffigures
+	\newpage
+	
+	\mainmatter % Termina la numeración romana
+	\pagestyle{mainmatterstyle} % Numeración en la esquina superior derecha
+	
+	%%%%% DOCUMENTO PRINCIPAL
+	\input{content}
+
+	%%%%% BIBLIOGRAFÍA
+	\def\thispagestyle#1{} %Posiciona correctamente la nuemración de la bibliografia. Solución posiblemente sujeta a errores
+	\bibliographystyle{ieeetr}
+	\bibliography{library}
+	
+\end{document}
